@@ -5,6 +5,7 @@ from PySide6.QtCore import Qt
 from db import TodoDAO
 from main_window import TodoWidget
 from hotkey_manager import HotkeyManager
+from settings import SettingsManager
 from logger import logger
 
 def create_tray_icon():
@@ -32,7 +33,8 @@ def main():
     app.setQuitOnLastWindowClosed(False)
 
     dao = TodoDAO()
-    widget = TodoWidget(dao)
+    settings = SettingsManager()
+    widget = TodoWidget(dao, settings)
     hotkey_manager = HotkeyManager()
     
     def toggle_widget():

@@ -146,7 +146,6 @@ class TitleBar(QWidget):
         
         self.opacity_slider = QSlider(Qt.Orientation.Horizontal)
         self.opacity_slider.setRange(40, 100)
-        self.opacity_slider.setValue(95)
         self.opacity_slider.setFixedWidth(60)
         self.opacity_slider.setToolTip("Background Opacity")
         self.opacity_slider.setCursor(Qt.CursorShape.PointingHandCursor)
@@ -202,11 +201,13 @@ class TitleBar(QWidget):
 
 
 class TodoWidget(QWidget):
-    def __init__(self, dao: TodoDAO):
+    def __init__(self, dao: TodoDAO, settings_mgr):
         super().__init__()
         self.dao = dao
-        self.current_theme = "dark"
-        self.current_opacity = 95
+        self.settings = settings_mgr
+        
+        self.current_theme = self.settings.get("theme", "dark")
+        self.current_opacity = self.settings.get("opacity", 95)
         
         # Configure the window
         self.setWindowFlags(
@@ -231,6 +232,9 @@ class TodoWidget(QWidget):
         
         # Title Bar
         self.title_bar = TitleBar(self.change_theme, self.change_opacity, self)
+        self.title_bar.opacity_slider.blockSignals(True)
+        self.title_bar.opacity_slider.setValue(self.current_opacity)
+        self.title_bar.opacity_slider.blockSignals(False)
         self.container_layout.addWidget(self.title_bar)
         
         # Input Field
@@ -257,12 +261,14 @@ class TodoWidget(QWidget):
 
     def change_theme(self, theme_id):
         self.current_theme = theme_id
+        self.settings.set("theme", theme_id)
         logger.info(f"Theme switched to: [bold cyan]{self.current_theme}[/bold cyan]")
         self.apply_theme()
         self.load_tasks()
 
     def change_opacity(self, value):
         self.current_opacity = value
+        self.settings.set("opacity", value)
         self.apply_theme()
 
     def apply_theme(self):
