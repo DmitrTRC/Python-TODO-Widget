@@ -1,0 +1,13 @@
+PySide6>=6.6.0
+pynput>=1.7.6
+rich>=13.0.0
+
+# Build Instructions:
+# 1. Install pyinstaller:
+# pip install pyinstaller
+#
+# 2. Build for macOS as a windowless application (.app bundle without Dock icon):
+# pyinstaller --name "TodoWidget" --windowed --noconsole app.py
+#
+# Note: On macOS, running the packaged app or running it from terminal will require Accessibility permissions
+# for pynput to intercept global hotkeys. You will need to grant this in System Settings -> Privacy & Security -> Accessibility.
