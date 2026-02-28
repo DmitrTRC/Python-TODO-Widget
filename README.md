@@ -7,9 +7,12 @@
 [![Python Version](https://img.shields.io/badge/python-3.11+-blue.svg?style=for-the-badge&logo=python)](https://www.python.org/downloads/)
 [![PySide6](https://img.shields.io/badge/PySide6-GUI-green.svg?style=for-the-badge&logo=qt)](https://pypi.org/project/PySide6/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
-[![Build Status](https://img.shields.io/github/actions/workflow/status/DmitrTRC/Python-TODO-Widget/ci.yml?style=for-the-badge&logo=github)](https://github.com/DmitrTRC/Python-TODO-Widget/actions)
+[![Build Status](https://github.com/DmitrTRC/Python-TODO-Widget/actions/workflows/ci.yml/badge.svg?style=for-the-badge)](https://github.com/DmitrTRC/Python-TODO-Widget/actions/workflows/ci.yml)
 
-<img src="https://via.placeholder.com/800x400/1E1E1E/FFFFFF?text=TodoWidget+Screenshot+Here" alt="TodoWidget Showcase" width="600" style="border-radius: 12px; margin-top: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.5);"/>
+### 🎨 Themes Showcase
+| Dark | Light | Synthwave |
+| :---: | :---: | :---: |
+| <img src="docs/theme_dark.png" width="250" style="border-radius:12px"> | <img src="docs/theme_light.png" width="250" style="border-radius:12px"> | <img src="docs/theme_synthwave.png" width="250" style="border-radius:12px"> |
 
 </div>
 
